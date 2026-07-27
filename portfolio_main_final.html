@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Саша | Копирайтер и нарративный дизайнер</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2a;
+            background: #f5f5f0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2a 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        header .intro {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e8e8e8;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #6b5b95 0%, #8b7ba8 100%);
+            color: white;
+            padding: 35px 25px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card-header .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .card-content {
+            padding: 30px 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content p {
+            color: #4a4a48;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .card-footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-arrow {
+            color: #6b5b95;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover .card-arrow {
+            transform: translateX(5px);
+        }
+
+        .projects-count {
+            font-size: 0.85rem;
+            color: #8a8a88;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2a 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .contact-section p {
+            font-size: 1rem;
+            color: #d0d0d0;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid #6b5b95;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .contact-links a:hover {
+            background: #6b5b95;
+            border-color: #6b5b95;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #8a8a88;
+            border-top: 1px solid #d0d0ce;
+            margin-top: 80px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header .intro {
+                font-size: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-links a {
+                width: 100%;
+            }
+
+            .card-header h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Саша</h1>
+            <p class="intro">Я копирайтер и нарративный дизайнер. Я работаю с текстами более 10 лет. Приглашаю ознакомиться с моим портфолио ниже. Энджой!</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <!-- Card 1: Video Scenarios -->
+            <a href="#" class="portfolio-card">
+                <div class="card-header">
+                    <div class="icon">🎬</div>
+                    <h2>Сценарии для видео</h2>
+                </div>
+                <div class="card-content">
+                    <p>Писала сценарии и закадровую речь для стримов, видео-анонсов обновлений и событий.</p>
+                    <div class="card-footer">
+                        <span class="projects-count">2 проекта</span>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2: Event Scenarios -->
+            <a href="#" class="portfolio-card">
+                <div class="card-header">
+                    <div class="icon">✨</div>
+                    <h2>Сценарии для ивентов</h2>
+                </div>
+                <div class="card-content">
+                    <p>Разрабатывала полный нарратив для ивентов: от концепции и сюжета до диалогов персонажей и описаний квестов.</p>
+                    <div class="card-footer">
+                        <span class="projects-count">1 проект</span>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3: Marketing Copywriting -->
+            <a href="#" class="portfolio-card">
+                <div class="card-header">
+                    <div class="icon">📢</div>
+                    <h2>Маркетинговый копирайтинг</h2>
+                </div>
+                <div class="card-content">
+                    <p>Работала над пресс-релизами, push-уведомлениями для разных сегментов, вела корпоративный Telegram-канал.</p>
+                    <div class="card-footer">
+                        <span class="projects-count">Разное</span>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 4: Technical Writing -->
+            <a href="#" class="portfolio-card">
+                <div class="card-header">
+                    <div class="icon">📖</div>
+                    <h2>Техническое письмо</h2>
+                </div>
+                <div class="card-content">
+                    <p>Составляла базу знаний для игроков и писала чейнджлоги, объясняла сложные вещи простым языком.</p>
+                    <div class="card-footer">
+                        <span class="projects-count">100+ статей</span>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>Свяжись со мной</h2>
+            <p>Открыта к новым проектам, колаборациям и интересным задачам.</p>
+            <div class="contact-links">
+                <a href="https://t.me/wolhime" target="_blank">Telegram</a>
+                <a href="mailto:mikomort@gmail.com">Email</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Belgrade, Serbia | 2025</p>
+    </footer>
+</body>
+</html>
