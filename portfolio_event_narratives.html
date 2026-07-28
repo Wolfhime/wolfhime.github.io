@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нарратив для ивентов | Саша</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2a;
+            background: #f5f5f0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2a 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+
+        header .back-link {
+            display: inline-block;
+            color: #d0d0d0;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        header .back-link:hover {
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        header .subtitle {
+            font-size: 1.05rem;
+            color: #d0d0d0;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* Event Block */
+        .event-block {
+            margin-bottom: 60px;
+        }
+
+        .event-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6b5b95;
+            display: inline-block;
+        }
+
+        /* Winter Event Styles */
+        .winter-event {
+            position: relative;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: 0;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            animation: fall linear infinite;
+            color: #7db5b1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .winter-section {
+            background: #c2e4e1;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #a8d5d1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .winter-section::before {
+            content: '❄️ ❄️ ❄️';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: snowfall 8s linear infinite;
+            letter-spacing: 40px;
+            text-align: left;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(calc(100% + 50px));
+                opacity: 0;
+            }
+        }
+
+        .winter-section h2,
+        .winter-section h3 {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Dark Event Styles */
+        .dark-event {
+            position: relative;
+        }
+
+        .dark-section {
+            background: linear-gradient(135deg, #2a1a3a 0%, #1a1a2e 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #4a3a5a;
+            color: #e0e0e0;
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: #d4a5ff;
+        }
+
+        .dark-section p {
+            color: #d0d0d0;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .winter-section .section-header {
+            color: #1a5f5a;
+        }
+
+        .dark-section .section-header {
+            color: #d4a5ff;
+        }
+
+        /* Text Content */
+        .winter-section p,
+        .dark-section p {
+            margin-bottom: 12px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .winter-section p:last-child,
+        .dark-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Character/NPC */
+        .character {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #6b5b95;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .winter-section .character {
+            background: rgba(255, 255, 255, 0.3);
+            border-left-color: #1a5f5a;
+        }
+
+        .dark-section .character {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: #d4a5ff;
+        }
+
+        .character-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .dark-section .character-name {
+            color: #d4a5ff;
+        }
+
+        .winter-section .character-name {
+            color: #1a5f5a;
+        }
+
+        .dialog {
+            font-style: italic;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .dialog:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Quest/Mechanic */
+        .quest {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #6b5b95;
+        }
+
+        .winter-section .quest {
+            background: rgba(255, 255, 255, 0.2);
+            border-left-color: #1a5f5a;
+        }
+
+        .dark-section .quest {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: #d4a5ff;
+        }
+
+        .quest strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .dark-section .quest strong {
+            color: #d4a5ff;
+        }
+
+        .winter-section .quest strong {
+            color: #1a5f5a;
+        }
+
+        .quest p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2a 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .contact-section p {
+            font-size: 1rem;
+            color: #d0d0d0;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid #6b5b95;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .contact-links a:hover {
+            background: #6b5b95;
+            border-color: #6b5b95;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #8a8a88;
+            border-top: 1px solid #d0d0ce;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .event-title {
+                font-size: 1.4rem;
+            }
+
+            .winter-section,
+            .dark-section {
+                padding: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-links a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← Назад к портфолио</a>
+            <h1>Нарратив для ивентов</h1>
+            <p class="subtitle">Полные сценарии игровых ивентов: лор, персонажи, диалоги и механика.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- ===== WINTER EVENT ===== -->
+        <div class="event-block winter-event">
+            <h2 class="event-title">❄️ Новогодний переполох</h2>
+
+            <!-- Lore -->
+            <div class="winter-section">
+                <h2 class="section-header">📖 Художественный лор</h2>
+                <p>Стояла глубокая зимняя ночь. Город стоял в безмолвии, и только редкие бодрствующие могли услышать едва уловимый звон колокольчиков и увидеть легкий след тени, скользящей по небу.</p>
+                <p>Через Арзамас в этот момент пролетал Лил Фрост — древний курьер зимней магии, спешивший по своим делам в другую часть планеты. Но все было бы отлично, если бы не одно "но". Марк установил у себя дома китайскую глушилку, которая задела тех, кого никто не планировал трогать — волшебных оленей.</p>
+                <p>Упряжка взбесилась и потеряла волшебные свойства. Лил Фрост пытался открыть портал в свой снежный мир, но глушилка сбила настройку снежинок. Вместо портала родилось невообразимое: огромные стеклянные снежные шары, которые начали разлетаться по всему Арзамасу. Они втягивали всё, что находилось рядом.</p>
+                <p>Магия шаров имеет одно правило: они пропускают только по-настоящему хороших мальчиков и девочек. На них не действует магия ловушки, и они могут восстанавливать порядок, отключать магические сбои и спасать тех, кто застрял. Судьба Лил Фроста, эльфов и всех снежных миров зависит от вас.</p>
+            </div>
+
+            <!-- Characters -->
+            <div class="winter-section">
+                <h2 class="section-header">🎭 Персонажи и диалоги</h2>
+                
+                <div class="character">
+                    <div class="character-name">Лил Фрост</div>
+                    <div class="dialog">— Йоу-хо-хо, дружище! Чем могу help you?</div>
+                    <div class="dialog">— I understand, что ты в шоке! Еще бы попасть в мечту своего детства — это же взрыв мозга, dude!</div>
+                    <div class="dialog">— Take your time, и когда будешь готов — возвращайся ко мне, dude!</div>
+                </div>
+
+                <div class="character">
+                    <div class="character-name">Снежная Эльфийка</div>
+                    <div class="dialog">— Да как и все. Была вакансия с хорошей зарплатой. Приятный коллектив и отличный волшебный соц.пакет.</div>
+                    <div class="dialog">— Я не очень хочу отвечать на вопросы. Но меня попросили быть с тобой милой — ужасно…</div>
+                    <div class="dialog">— Знаешь, что бывает с любопытными людьми? Ничего хорошего.</div>
+                </div>
+
+                <div class="character">
+                    <div class="character-name">Эльф-помощник</div>
+                    <div class="dialog">— Сейчас мы застряли, всё сорвалось! Это кошмар! Так что да — работа нравится… когда мир не рушится!</div>
+                    <div class="dialog">— Нас прокляли. Духи зимы недовольны нами. Что-то мы сделали не так.</div>
+                </div>
+            </div>
+
+            <!-- Quests -->
+            <div class="winter-section">
+                <h2 class="section-header">⚔️ Квесты</h2>
+                
+                <div class="quest">
+                    <strong>Битва снежками</strong>
+                    <p>Прими участие в эпическом захвате флага и приведи свою команду к победе!</p>
+                </div>
+
+                <div class="quest">
+                    <strong>Снежная доставка</strong>
+                    <p>Надевай джетпак и развози подарки хорошим деткам или оставляй камни плохим!</p>
+                </div>
+
+                <div class="quest">
+                    <strong>Танцевальный батл</strong>
+                    <p>Зажги на танцполе и сделай это холодное время по-настоящему горячим!</p>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="winter-section">
+                <p><strong style="color: #1a5f5a;">💎 Валюта ивента:</strong> Искры</p>
+                <p><strong style="color: #1a5f5a;">📍 Проект:</strong> Матрешка РП</p>
+                <p><strong style="color: #1a5f5a;">✨ Роль:</strong> Полная разработка нарратива, создание персонажей, диалогов и квестов.</p>
+            </div>
+        </div>
+
+        <!-- ===== DARK EVENT ===== -->
+        <div class="event-block dark-event">
+            <h2 class="event-title">🐙 Древние боги</h2>
+
+            <!-- Lore -->
+            <div class="dark-section">
+                <h2 class="section-header">📖 Художественный лор</h2>
+                <p>Звезды выстроились в зловещее созвездие, напоминающее огромного демонического осьминога, предвещающее ужасное событие — пробуждение существа, спящего на дне океана. С этого момента мир окрасился в мрачные краски и оказался на грани войны с Древними богами и их приспешниками.</p>
+                <p>После этого знамения в Арзамасе начали появляться таинственные и зловещие создания. Некоторые выглядели как люди, но отличались странной "аурой" и речью на незнакомом языке. Другие казались настолько уродливыми, что черты их лица напоминали рыб.</p>
+                <p>Второе зловещее событие — появление таинственного Обелиска в самом сердце города. У его подножья находились ниши для подношений. Но это было лишь временным затишьем перед надвигающейся бурей.</p>
+                <p>В Эдово ситуация была намного хуже. После появления чужаков начали пропадать рыбаки. Обнаруженное первое тело шокировало всех — оно было растерзано, как будто его разорвала целая стая диких зверей. По ночам из воды выходили чудовища, охотящиеся на живых существ.</p>
+                <p>Всё происходящее — не случайность, а чётко продуманный план ордена Культистов. Они пытаются пробудить Древнего бога, покоящегося в городе Р'льех на дне мирового океана. Его пробуждение знаменует конец всего живого.</p>
+                <p>Но есть надежда — Отряд Сопротивления. Эти люди понимают, что происходит. Они перехватывают сообщения, пытаются помешать проведению ритуалов, но их сил недостаточно. Им нужен герой!</p>
+            </div>
+
+            <!-- NPCs -->
+            <div class="dark-section">
+                <h2 class="section-header">🎭 Члены Отряда Сопротивления</h2>
+                
+                <div class="character">
+                    <div class="character-name">Таинственный детектив</div>
+                    <div class="dialog">— Это орден, служащий Древним богам, способным уничтожить всё живое. Они неожиданно покинули свои укрытия и собрались здесь.</div>
+                    <div class="dialog">— Древние боги — это ужасные чудовища, спящие миллионы веков. Когда они проснутся, уничтожат мир.</div>
+                </div>
+
+                <div class="character">
+                    <div class="character-name">Таинственный доктор</div>
+                    <div class="dialog">— Орден Культистов знает нас в лицо. Мне бы не дали даже приблизиться к порталу. Поэтому нам нужны новички.</div>
+                    <div class="dialog">— На дне океана, в городе Р'льех, спит самое ужасное из монстров. Наш долг — не дать ему проснуться.</div>
+                </div>
+
+                <div class="character">
+                    <div class="character-name">Зловещий незнакомец (Культист)</div>
+                    <div class="dialog">— За успешное выполнение квестов вы получите Эликсир Древних. Он дарует силу тех, кто служит нам.</div>
+                </div>
+            </div>
+
+            <!-- Mechanics -->
+            <div class="dark-section">
+                <h2 class="section-header">⚙️ Механика ивента</h2>
+                
+                <p><strong style="color: #d4a5ff;">Основные элементы:</strong></p>
+                
+                <div class="quest">
+                    <strong>Режим Противостояние (Эдово)</strong>
+                    <p>Игроки делятся на две команды: Отряд Сопротивления и Глубоководные (монстры). Если член Сопротивления умирает, он становится Глубоководным. Чередуются день (укрепление, отдых) и ночь (битвы).</p>
+                </div>
+
+                <div class="quest">
+                    <strong>Обелиск и Дерево наград (Арзамас)</strong>
+                    <p>Огромный камень с нишами для подношений. Игроки собирают Жемчужные звезды (валюта ивента) и открывают награды.</p>
+                </div>
+
+                <div class="quest">
+                    <strong>Три типа квестов</strong>
+                    <p><strong style="color: #d4a5ff;">От детектива:</strong> Взлом тайников Культистов. Награды: баррикады, сигнальные ракеты.<br>
+                    <strong style="color: #d4a5ff;">От доктора:</strong> Закрытие порталов. Награды: меднабор.<br>
+                    <strong style="color: #d4a5ff;">От Культиста:</strong> Поиск фрагментов рецепта Эликсира. Награды: Эликсир Древних для команды монстров.</p>
+                </div>
+
+                <div class="quest">
+                    <strong>Валюта: Жемчужные звезды</strong>
+                    <p>Получаются за выполнение заданий, находятся в артефактах, даются за участие в Противостоянии и прохождение обучения от Марка.</p>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="dark-section">
+                <p><strong style="color: #d4a5ff;">💎 Валюта ивента:</strong> Жемчужные звезды</p>
+                <p><strong style="color: #d4a5ff;">📍 Проект:</strong> Матрешка РП | Halloween 2024</p>
+                <p><strong style="color: #d4a5ff;">✨ Роль:</strong> Полная разработка нарратива, система NPC, дизайн механики, создание диалогов персонажей.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>Свяжись со мной</h2>
+            <p>Готова обсудить проекты и ответить на вопросы.</p>
+            <div class="contact-links">
+                <a href="https://t.me/wolhime" target="_blank">Telegram</a>
+                <a href="mailto:mikomort@gmail.com">Email</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Belgrade, Serbia | 2025</p>
+    </footer>
+</body>
+</html>
