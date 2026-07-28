@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маркетинговый копирайтинг | Саша</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2a;
+            background: #f5f5f0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2a 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+
+        header .back-link {
+            display: inline-block;
+            color: #d0d0d0;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        header .back-link:hover {
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        header .subtitle {
+            font-size: 1.05rem;
+            color: #d0d0d0;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6b5b95;
+            display: inline-block;
+        }
+
+        /* Content Block */
+        .content-block {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .content-block h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: #8a8a88;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .content-block p {
+            color: #4a4a48;
+            margin-bottom: 12px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .content-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Push Variants */
+        .push-group {
+            background: #f9f9f8;
+            border-left: 4px solid #6b5b95;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .push-group h4 {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: #6b5b95;
+            font-weight: 600;
+        }
+
+        .push-variant {
+            background: white;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #6b5b95;
+            font-size: 0.9rem;
+            color: #4a4a48;
+            font-style: italic;
+        }
+
+        .push-variant:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Telegram Post */
+        .telegram-post {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 4px solid #0088cc;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .telegram-post h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #0088cc;
+            font-weight: 600;
+        }
+
+        .telegram-post p {
+            color: #2c2c2a;
+            margin-bottom: 10px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .telegram-post p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Info Block */
+        .info-block {
+            background: linear-gradient(135deg, #f0ecf8 0%, #f5f1fa 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid #e0d5f0;
+        }
+
+        .info-block p {
+            color: #4a4a48;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .info-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2a 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .contact-section p {
+            font-size: 1rem;
+            color: #d0d0d0;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid #6b5b95;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .contact-links a:hover {
+            background: #6b5b95;
+            border-color: #6b5b95;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #8a8a88;
+            border-top: 1px solid #d0d0ce;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .content-block {
+                padding: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-links a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← Назад к портфолио</a>
+            <h1>Маркетинговый копирайтинг</h1>
+            <p class="subtitle">Пресс-релизы, push-уведомления и контент для корпоративного Telegram-канала Мострансавто.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- ===== PRESS RELEASES ===== -->
+        <section>
+            <h2 class="section-title">📰 Пресс-релизы</h2>
+
+            <!-- Press Release 1 -->
+            <div class="content-block">
+                <h3>Водитель Мострансавто спас пассажира</h3>
+                <p class="meta">Интервью в формате статьи, 2023</p>
+                
+                <p>Водитель Мострансавто Шухрат Фуркатович Пулатов спас пассажира, которому резко стало плохо во время поездки на маршруте № 35. Это произошло утром 22 ноября в г.о. Пушкинский, село Братовщина, когда Шухрат Фуркатович выполнял очередной рейс на автобусе ЛиАЗ-4292.</p>
+
+                <p>Водитель заметил, как молодой человек, сидящий на переднем кресле, закрыл глаза и ударился головой о перегородку. Сотрудник не растерялся и быстро среагировал. У пассажира начались конвульсии и судороги. Шухрат оказал первую помощь, положил его на пол, под голову подложил подушку, люди вызвали скорую.</p>
+
+                <p>Около остановки «Новая деревня» водитель увидел машину скорой помощи и передал молодого человека профессиональным медикам. Стоит добавить, что все пассажиры отнеслись к происходящему с пониманием. Шухрат Пулатов говорит, что просто выполнял свою работу.</p>
+            </div>
+
+            <!-- Press Release 2 -->
+            <div class="content-block">
+                <h3>Беглец в Мострансавто</h3>
+                <p class="meta">Статья, 2023</p>
+                
+                <p>Сотрудники Мострансавто из МАП № 5 г. Подольск вернули пропавшую собаку хозяину. Французский бульдог по кличке Яша убежал от хозяина на прогулке и запрыгнул в закрывающиеся двери автобуса.</p>
+
+                <p>Водитель завершил работу на рейсе и следовал в парк. По словам сотрудника филиала, он не заметил, как четвероногий пассажир «зайцем» проскочил в автобус, а во время движения в салоне была полная тишина.</p>
+
+                <p>Сотрудники обнаружили собаку, когда автобус уже был в филиале. Было понятно, что пес домашний. На бульдоге оказался жетончик с номером телефона — работники позвонили владельцу. На жетоне собака называлась Яша, но все время, пока искали хозяина, он был Филом. Беглеца вернули владельцу — теперь Яша дома.</p>
+            </div>
+        </section>
+
+        <!-- ===== TELEGRAM CHANNEL ===== -->
+        <section>
+            <h2 class="section-title">📱 Контент Telegram-канала</h2>
+            <p style="margin-bottom: 30px; color: #4a4a48;">Примеры постов из корпоративного канала Мострансавто</p>
+
+            <!-- Telegram Post 1 -->
+            <div class="telegram-post">
+                <h4>🚗 Guilty Pleasure: Sir Vival</h4>
+                <p>У всех свои guilty pleasure, у нас — любоваться на красивые и/или необычные автомобили (автобусам ни слова!). В этот раз мы хотим поделиться с вами достаточно экзотичным вариантом — Sir Vival 🧐</p>
+                <p>Это авто признано самым страшным, но зато и самым безопасным в мире. Правда, актуально это только на конец 50-х годов, когда любопытный экземпляр и был создан!</p>
+                <p>Создатель Sir Vival, Уолтер Джером, рационально решил, что ради большей безопасности можно пожертвовать красивым дизайном. К сожалению, он не продумал управление авто до мелочей, и оказалось, что водить машину очень сложно из-за отсутствия гидроусилителей.</p>
+                <p>Хоть Sir Vival получил большую огласку в СМИ, Уолтер Джером так и не смог получить финансирование для целой партии. Так что в конце концов он просто продал свой автомобиль.</p>
+            </div>
+
+            <!-- Telegram Post 2 -->
+            <div class="telegram-post">
+                <h4>❄️ Снежная сказка: Шоссе Татэяма Куробэ</h4>
+                <p>Каждый год многие дороги мира превращаются в волшебную сказку — царство снега и льда. Но вот в горах Японии всё наоборот!</p>
+                <p>Шоссе Татэяма Куробэ, которое проходит между городами Тояма и Омачи, превращается в настоящий снежный лабиринт каждую… весну 😅</p>
+                <p>Высота снежной стены доходит до 20 метров, саму дорогу начинают прорубать в толще снега в апреле/мае. Интересно, что проезд по шоссе частному автотранспорту запрещен, а чтобы сохранить белизну ландшафта там курсируют лишь автобусы с электродвигателями.</p>
+                <p>❄️ Наслаждаемся снимками 📸</p>
+            </div>
+        </section>
+
+        <!-- ===== PUSH NOTIFICATIONS ===== -->
+        <section>
+            <h2 class="section-title">📲 Push-уведомления</h2>
+            <p style="margin-bottom: 30px; color: #4a4a48;">Примеры из разных сегментов игроков Матрешка РП на разных этапах юзер-джорнея</p>
+
+            <!-- D1 - New players -->
+            <div class="push-group">
+                <h4>D1 — Новички (первый день)</h4>
+                <div class="push-variant">Матрешка ждет! Заходи и играй!</div>
+                <div class="push-variant">Пора покорить мир Матрешки. Заходи в игру.</div>
+                <div class="push-variant">Твоя судьба в твоих руках — заходи в Матрешку и покори ее!</div>
+            </div>
+
+            <!-- D2 - Active with purchase decision -->
+            <div class="push-group">
+                <h4>D2a — Куплен Стартер Пак</h4>
+                <div class="push-variant">Ворвись в игру с новыми силами — Матрешка ждет тебя!</div>
+                <div class="push-variant">Улицы Арзамаса ждут — заходи и покоряй РП-мир!</div>
+            </div>
+
+            <div class="push-group">
+                <h4>D2b — Стартер Пак не куплен</h4>
+                <div class="push-variant">Скорее купи Стартер Пак и оставь остальных позади!</div>
+                <div class="push-variant">Забирай Стартер Пак и стартуй с бонусами!</div>
+            </div>
+
+            <!-- C14 - Churn (Very inactive) -->
+            <div class="push-group">
+                <h4>C14 — Очень неактивные (14+ дней перерыва)</h4>
+                <div class="push-variant">Ты куда пропал? Арзамас опустел без тебя…</div>
+                <div class="push-variant">Не останавливайся — возвращайся в игру!</div>
+                <div class="push-variant">Твой успех под угрозой. Возвращайся скорее!</div>
+            </div>
+
+            <!-- P1 - Active paying -->
+            <div class="push-group">
+                <h4>P1 — Активные платящие</h4>
+                <div class="push-variant">Тебя ждет крутой кейс — выполни задание и забери его!</div>
+                <div class="push-variant">Новый день — новый бонус! Заходи в игру!</div>
+            </div>
+
+            <!-- Subscription prompt -->
+            <div class="push-group">
+                <h4>Просьба подписаться на уведомления</h4>
+                <div class="push-variant"><strong>Включи уведомления!</strong> Не пропусти новости о наградах, событиях и крутых промокодах!</div>
+                <div class="push-variant"><strong>Подпишись на уведомления</strong> и будь в курсе наград, событий и крутых промокодов!</div>
+            </div>
+        </section>
+
+        <!-- Info Block -->
+        <div class="info-block">
+            <p><strong>📍 Проекты:</strong> Мострансавто (пресс-релизы, Telegram-канал) | Матрешка РП (push-уведомления)</p>
+            <p><strong>✨ Роль:</strong> Создание PR-контента, копирайтинг для пушей, управление корпоративным Telegram-каналом.</p>
+            <p><strong>📊 Компетенции:</strong> Сегментация аудитории, микрокопирайтинг, storytelling, retention-маркетинг, фирменный голос бренда.</p>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>Свяжись со мной</h2>
+            <p>Готова обсудить проекты и ответить на вопросы.</p>
+            <div class="contact-links">
+                <a href="https://t.me/wolhime" target="_blank">Telegram</a>
+                <a href="mailto:mikomort@gmail.com">Email</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Belgrade, Serbia | 2025</p>
+    </footer>
+</body>
+</html>
